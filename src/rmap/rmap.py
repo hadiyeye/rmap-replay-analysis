@@ -145,7 +145,7 @@ class RMAP:
             hex_str = f"{combined:032x}"
 
             # Optionally clear state for one-time use
-            # del self.nonces[identity]
+            del self.nonces[identity]
 
             return {"result": hex_str}
 

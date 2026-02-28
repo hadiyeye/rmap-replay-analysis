@@ -95,7 +95,7 @@ def main() -> None:
     pp("Server→Client | Response 1 (encrypted JSON)", resp1)
 
     # Client decrypts Response 1 with Jean's private key to inspect it
-    armored = base64.b64decode(resp1["payload"]).decode("utf-8")
+    armored = base64.b64decode(resp1["payload"])
     pgp_msg = PGPMessage.from_blob(armored)
     resp1_plain = json.loads(jean_priv.decrypt(pgp_msg).message)
     pp("Server→Client | Response 1 (decrypted)", resp1_plain)
